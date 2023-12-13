@@ -13,7 +13,8 @@ export const accommodationDefinitionReducer = (
   const accommodation = new Accommodation(
     accommodationDefinition.id,
     accommodationDefinition.name,
-    accommodationDefinition.description
+    accommodationDefinition.description,
+    []
   );
   const accommodations =
     existingIndex >= 0
