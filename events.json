@@ -1,0 +1,16 @@
+[
+  {
+    "index": 1,
+    "id": "316d1ca3-4ec9-4879-80b4-f45e2c9fa663",
+    "event": "AccommodationDefinition",
+    "name": "Biberburg",
+    "description": "Das schönste Zimmer der Welt"
+  },
+  {
+    "event": "AccommodationDefinition",
+    "index": 2,
+    "id": "ae54d281-2542-4801-a9fa-1e73b918b1a8",
+    "name": "Lustiges Häuschen",
+    "description": "blub beschreibungun"
+  }
+]
