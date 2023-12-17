@@ -1,4 +1,4 @@
 export interface Event {
-  name: string;
+  event: string;
   index: number | undefined;
 }

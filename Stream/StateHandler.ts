@@ -19,14 +19,11 @@ export class StateHandler {
     }
     switch (result.data.event) {
       case AccommodationDefinition.name:
-        console.log("event :>> ", event);
-        console.log(event instanceof AccommodationDefinition);
         const [res, error] =
           event instanceof AccommodationDefinition
             ? [event, undefined]
             : AccommodationDefinition.from(event);
         if (error) {
-          console.log("-----------");
           return error;
         }
         this.actualState = accommodationDefinitionReducer(

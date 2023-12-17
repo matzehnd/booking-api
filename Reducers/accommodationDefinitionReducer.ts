@@ -8,10 +8,9 @@ export const accommodationDefinitionReducer = (
   accommodationDefinition: AccommodationDefinition
 ) => {
   const existingIndex = state.accommodations.all.findIndex(
-    (a) => a.id === accommodationDefinition.id
+    (a) => a.name === accommodationDefinition.name
   );
   const accommodation = new Accommodation(
-    accommodationDefinition.id,
     accommodationDefinition.name,
     accommodationDefinition.description,
     []
