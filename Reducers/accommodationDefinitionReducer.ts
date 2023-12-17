@@ -17,7 +17,7 @@ export const accommodationDefinitionReducer = (
   );
   const accommodations =
     existingIndex >= 0
-      ? [...state.accommodations.all.splice(existingIndex, 1, accommodation)]
+      ? [...state.accommodations.all.toSpliced(existingIndex, 1, accommodation)]
       : [...state.accommodations.all, accommodation];
   return new State(new Accommodations(accommodations));
 };

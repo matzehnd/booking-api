@@ -3,7 +3,7 @@ import { Accommodation } from "../Models/Accommodation";
 import { Accommodations } from "../Models/Accomodations";
 import { State } from "../Models/State";
 
-export const accommodationDefinitionReducer = (
+export const bookingRequestReducer = (
   state: State,
   bookingRequest: BookingRequest
 ) => {
@@ -18,7 +18,7 @@ export const accommodationDefinitionReducer = (
   const accommodation = state.accommodations.all[existingIndex];
 
   const accommodations = [
-    ...state.accommodations.all.splice(
+    ...state.accommodations.all.toSpliced(
       existingIndex,
       1,
       new Accommodation(accommodation.name, accommodation.description, [
@@ -27,6 +27,8 @@ export const accommodationDefinitionReducer = (
       ])
     ),
   ];
+
+  console.log("accommodations :>> ", accommodations);
 
   return new State(new Accommodations(accommodations));
 };
