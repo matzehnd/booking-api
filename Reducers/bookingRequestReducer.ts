@@ -28,7 +28,5 @@ export const bookingRequestReducer = (
     ),
   ];
 
-  console.log("accommodations :>> ", accommodations);
-
   return new State(new Accommodations(accommodations));
 };

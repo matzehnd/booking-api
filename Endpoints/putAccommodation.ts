@@ -5,7 +5,6 @@ import { WithError } from "../helper/WithError";
 import { AccommodationDefinition } from "../Events/AccommodationDefinition";
 
 const bodySchema = z.object({
-  id: z.string(),
   name: z.string(),
   description: Description.schema,
 });
@@ -21,7 +20,6 @@ export const putAccommodation = async (
   const [_, error] = await sink.applyEvent(
     new AccommodationDefinition({
       description: res.data.description,
-      id: res.data.id,
       name: res.data.name,
       index: undefined,
     })

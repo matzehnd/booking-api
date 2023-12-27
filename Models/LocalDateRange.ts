@@ -7,8 +7,12 @@ export class LocalDateRange {
     public readonly to: LocalDate
   ) {}
 
-  public static schema = z.object({
-    from: LocalDate.schema,
-    to: LocalDate.schema,
-  });
+  public static schema = z
+    .object({
+      from: LocalDate.schema,
+      to: LocalDate.schema,
+    })
+    .transform((data) => {
+      return new LocalDateRange(data.from, data.to);
+    });
 }

@@ -10,5 +10,32 @@
     "index": 2,
     "name": "Lustiges Häuschen",
     "description": "blub beschreibungun"
+  },
+  {
+    "event": "AccommodationDefinition",
+    "index": 3,
+    "name": "Lustiges Häuschen",
+    "description": "blub beschreibungun das ist toll"
+  },
+  {
+    "event": "AccommodationDefinition",
+    "index": 4,
+    "name": "Lustiges Häuschen",
+    "description": "blub beschreibungun das ist noch besser"
+  },
+  {
+    "event": "AccommodationDefinition",
+    "index": 5,
+    "name": "Lustiges Häuschen",
+    "description": "blub beschreibungun es ganz ok"
+  },
+  {
+    "event": "BookingRequest",
+    "index": 6,
+    "accommodation": "Lustiges Häuschen",
+    "period": {
+      "from": { "year": 2022, "month": 2, "day": 3 },
+      "to": { "year": 2022, "month": 2, "day": 3 }
+    }
   }
 ]

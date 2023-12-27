@@ -11,7 +11,7 @@ export class AccommodationDefinition implements Event {
   constructor(data: z.infer<typeof AccommodationDefinition.schema>) {
     this.index = data.index;
     this.name = data.name;
-    this.description = Description.from(data.description);
+    this.description = data.description;
   }
 
   public static schema = z.object({
@@ -21,8 +21,11 @@ export class AccommodationDefinition implements Event {
   });
 
   public static from(
-    data: unknown
+    data: unknown | AccommodationDefinition
   ): WithError<AccommodationDefinition, ZodError> {
+    if (data instanceof AccommodationDefinition) {
+      return [data, undefined];
+    }
     const res = this.schema.safeParse(data);
     if (!res.success) {
       return [undefined, res.error];
