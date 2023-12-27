@@ -2,6 +2,8 @@ import { ZodError, z } from "zod";
 import { State } from "../Models/State";
 import { AccommodationDefinition } from "../Events/AccommodationDefinition";
 import { accommodationDefinitionReducer } from "../Reducers/accommodationDefinitionReducer";
+import { BookingRequest } from "../Events/BookingRequest";
+import { bookingRequestReducer } from "../Reducers/bookingRequestReducer";
 
 const eventSchema = z.object({
   index: z.number(),
@@ -17,24 +19,23 @@ export class StateHandler {
     if (!result.success) {
       return;
     }
-    switch (result.data.event) {
-      case AccommodationDefinition.name:
-        const [res, error] =
-          event instanceof AccommodationDefinition
-            ? [event, undefined]
-            : AccommodationDefinition.from(event);
-        if (error) {
-          return error;
-        }
-        this.actualState = accommodationDefinitionReducer(
-          this.actualState,
-          res
-        );
-        return undefined;
-        break;
 
-      default:
-        break;
+    if (result.data.event === AccommodationDefinition.name) {
+      const [res, error] = AccommodationDefinition.from(event);
+      if (error) {
+        return error;
+      }
+      this.actualState = accommodationDefinitionReducer(this.actualState, res);
+      return undefined;
+    }
+
+    if (result.data.event === BookingRequest.name) {
+      const [res, error] = BookingRequest.from(event);
+      if (error) {
+        return error;
+      }
+      this.actualState = bookingRequestReducer(this.actualState, res);
+      return undefined;
     }
   }
 
