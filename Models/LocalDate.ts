@@ -29,7 +29,7 @@ export class LocalDate {
     return [res.data, undefined];
   }
 
-  public get value() {
+  public toJSON() {
     return `${this.year}-${this.month.toString().padStart(2, "0")}-${this.day
       .toString()
       .padStart(2, "0")}`;

@@ -4,10 +4,13 @@ import { WithError } from "../helper/WithError";
 import { BookingRequest } from "../Events/BookingRequest";
 import { LocalDateRange } from "../Models/LocalDateRange";
 import { State } from "../Models/State";
+import { Customer } from "../Models/Customer";
+import { v4 } from "uuid";
 
 const bodySchema = z.object({
   accommodation: z.string(),
   period: LocalDateRange.schema,
+  customer: Customer.schema,
 });
 
 export const putBookingRequest = async (
@@ -33,6 +36,8 @@ export const putBookingRequest = async (
       accommodation: res.data.accommodation,
       period: res.data.period,
       index: undefined,
+      customer: res.data.customer,
+      id: v4(),
     })
   );
   return [undefined, error];
