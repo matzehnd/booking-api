@@ -15,12 +15,28 @@ describe("putBookingRequest", () => {
     );
     expect(error).toBeTruthy();
   });
+
   it("should return no error, if body is valid", async () => {
     const data = {
-      accommodation: "blub",
-      period: {
-        from: "2022-02-03",
-        to: "2022-02-04",
+      bookings: [
+        {
+          accommodation: "blub",
+          period: {
+            from: "2022-02-03",
+            to: "2022-02-04",
+          },
+        },
+      ],
+      customer: {
+        firstname: "ma",
+        lastname: "bu",
+        email: "blub@t.ch",
+        address: {
+          country: "ch",
+          locality: "basel",
+          postalCode: "4153",
+          street: "Feldweg 11",
+        },
       },
     };
 

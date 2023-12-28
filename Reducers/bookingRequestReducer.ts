@@ -7,26 +7,30 @@ export const bookingRequestReducer = (
   state: State,
   bookingRequest: BookingRequest
 ) => {
-  const existingIndex = state.accommodations.all.findIndex(
-    (a) => a.name === bookingRequest.accommodation
-  );
+  const newState = bookingRequest.bookings.reduce<State>((prev, current) => {
+    const existingIndex = state.accommodations.all.findIndex(
+      (a) => a.name === current.accommodation
+    );
 
-  if (existingIndex < 0) {
-    return state;
-  }
+    if (existingIndex < 0) {
+      return prev;
+    }
 
-  const accommodation = state.accommodations.all[existingIndex];
+    const accommodation = prev.accommodations.all[existingIndex];
 
-  const accommodations = [
-    ...state.accommodations.all.toSpliced(
-      existingIndex,
-      1,
-      new Accommodation(accommodation.name, accommodation.description, [
-        ...accommodation.occupations,
-        bookingRequest.period,
-      ])
-    ),
-  ];
+    const accommodations = [
+      ...prev.accommodations.all.toSpliced(
+        existingIndex,
+        1,
+        new Accommodation(accommodation.name, accommodation.description, [
+          ...accommodation.occupations,
+          current.period,
+        ])
+      ),
+    ];
 
-  return new State(new Accommodations(accommodations));
+    return new State(new Accommodations(accommodations));
+  }, state);
+
+  return newState;
 };

@@ -8,27 +8,31 @@ import { Id } from "../Models/Id";
 export class BookingRequest implements Event {
   public readonly event = BookingRequest.name;
   public readonly index: number | undefined;
-  public readonly accommodation: string;
-  public readonly period: LocalDateRange;
+  public readonly bookings: ReadonlyArray<
+    Readonly<{
+      accommodation: string;
+      period: LocalDateRange;
+    }>
+  >;
   public readonly customer: Customer;
   public readonly id: Id;
 
   constructor({
-    accommodation,
+    bookings,
     customer,
     index,
-    period,
     id,
   }: {
     index: number | undefined;
-    accommodation: string;
-    period: LocalDateRange;
+    bookings: Array<{
+      accommodation: string;
+      period: LocalDateRange;
+    }>;
     customer: Customer;
     id: Id;
   }) {
     this.index = index;
-    this.accommodation = accommodation;
-    this.period = period;
+    this.bookings = bookings;
     this.customer = customer;
     this.id = id;
   }
@@ -36,8 +40,12 @@ export class BookingRequest implements Event {
   public static schema = z
     .object({
       index: z.number().optional(),
-      accommodation: z.string(),
-      period: LocalDateRange.schema,
+      bookings: z.array(
+        z.object({
+          accommodation: z.string(),
+          period: LocalDateRange.schema,
+        })
+      ),
       customer: Customer.schema,
       id: Id.schema,
     })
