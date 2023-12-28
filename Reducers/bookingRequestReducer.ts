@@ -1,6 +1,6 @@
 import { BookingRequest } from "../Events/BookingRequest";
 import { Accommodation } from "../Models/Accommodation";
-import { Accommodations } from "../Models/Accomodations";
+import { Accommodations } from "../Models/Accommodations";
 import { State } from "../Models/State";
 
 export const bookingRequestReducer = (

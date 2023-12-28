@@ -1,7 +1,7 @@
 import { describe, expect, it } from "bun:test";
 import { putBookingRequest } from "./putBookingRequest";
 import { State } from "../Models/State";
-import { Accommodations } from "../Models/Accomodations";
+import { Accommodations } from "../Models/Accommodations";
 import { Accommodation } from "../Models/Accommodation";
 
 describe("putBookingRequest", () => {

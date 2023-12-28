@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 import { State } from "../Models/State";
-import { Accommodations } from "../Models/Accomodations";
+import { Accommodations } from "../Models/Accommodations";
 import { bookingRequestReducer } from "./bookingRequestReducer";
 import { BookingRequest } from "../Events/BookingRequest";
 import { LocalDateRange } from "../Models/LocalDateRange";

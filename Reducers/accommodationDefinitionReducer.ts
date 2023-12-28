@@ -1,6 +1,6 @@
 import { AccommodationDefinition } from "../Events/AccommodationDefinition";
 import { Accommodation } from "../Models/Accommodation";
-import { Accommodations } from "../Models/Accomodations";
+import { Accommodations } from "../Models/Accommodations";
 import { State } from "../Models/State";
 
 export const accommodationDefinitionReducer = (
