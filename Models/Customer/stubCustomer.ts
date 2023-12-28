@@ -1,6 +1,6 @@
-import { Address } from "./Address";
+import { Address } from "../Address";
 import { Customer } from "./Customer";
-import { Email } from "./Email";
+import { Email } from "../Email";
 
 export const stubCustomer = () =>
   new Customer({

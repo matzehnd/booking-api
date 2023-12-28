@@ -6,7 +6,7 @@ import { BookingRequest } from "../Events/BookingRequest";
 import { LocalDateRange } from "../Models/LocalDateRange";
 import { LocalDate } from "../Models/LocalDate";
 import { Accommodation } from "../Models/Accommodation";
-import { stubCustomer } from "../Models/stubCustomer";
+import { stubCustomer } from "../Models/Customer/stubCustomer";
 
 test("ignore booking request for unknown accommodation", () => {
   const initialState = new State(new Accommodations([]));

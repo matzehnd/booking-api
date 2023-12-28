@@ -2,7 +2,7 @@ import { ZodError, z } from "zod";
 import { WithError } from "../helper/WithError";
 import { Event } from "./Event";
 import { LocalDateRange } from "../Models/LocalDateRange";
-import { Customer } from "../Models/Customer";
+import { Customer } from "../Models/Customer/Customer";
 import { Id } from "../Models/Id";
 
 export class BookingRequest implements Event {

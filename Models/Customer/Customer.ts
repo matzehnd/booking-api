@@ -1,7 +1,7 @@
 import { ZodError, z } from "zod";
-import { WithError } from "../helper/WithError";
-import { Address } from "./Address";
-import { Email } from "./Email";
+import { WithError } from "../../helper/WithError";
+import { Address } from "../Address";
+import { Email } from "../Email";
 
 export class Customer {
   public readonly lastname: string;

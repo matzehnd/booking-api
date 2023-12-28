@@ -4,7 +4,7 @@ import { WithError } from "../helper/WithError";
 import { BookingRequest } from "../Events/BookingRequest";
 import { LocalDateRange } from "../Models/LocalDateRange";
 import { State } from "../Models/State";
-import { Customer } from "../Models/Customer";
+import { Customer } from "../Models/Customer/Customer";
 import { v4 } from "uuid";
 
 const bodySchema = z.object({
