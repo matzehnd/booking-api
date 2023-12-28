@@ -2,8 +2,8 @@ import { ZodError, z } from "zod";
 import { WithError } from "../helper/WithError";
 
 export class Email extends String {
-  private constructor(description: string) {
-    super(description);
+  private constructor(email: string) {
+    super(email);
   }
   public static schema = z
     .string()
