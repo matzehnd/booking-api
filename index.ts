@@ -1,5 +1,5 @@
 import express from "express";
-import { plain } from "./Stream/source/plan";
+import { plain } from "./Stream/source/plain";
 import { DirectSink } from "./Stream/sink/DirectSink";
 import { getFilePersistanceHandler } from "./Stream/sink/getFilePersistanceHandler";
 import { getRouter } from "./Endpoints/getRouter";
